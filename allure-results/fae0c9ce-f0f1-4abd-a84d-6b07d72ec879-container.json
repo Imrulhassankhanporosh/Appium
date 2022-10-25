@@ -1,0 +1,1 @@
+{"uuid":"fae0c9ce-f0f1-4abd-a84d-6b07d72ec879","name":"Appium_task1","children":["f9bbd914-e4ed-4f01-a338-cad86ca7842b"],"befores":[{"name":"AppiumTK","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1666629116877,"stop":1666629140591}],"afters":[],"start":1666629116865,"stop":1666629150180}
