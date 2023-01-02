@@ -60,6 +60,8 @@ public class TestCase {
 
     //add customer/supplier page
 
+    // For First time adding Customer/supplier
+
 
     @FindBy(id = "com.progoti.tallykhata:id/etCustomerOrSupplier")
     public static
@@ -69,7 +71,7 @@ public class TestCase {
     public static
     MobileElement CS_mobile_no;
 
-    @FindBy(id = "com.progoti.tallykhata:id/etMobileNumber")
+    @FindBy(id = "com.progoti.tallykhata:id/etCreditInput")
     public static
     MobileElement CS_jer_amount;
 
@@ -80,6 +82,50 @@ public class TestCase {
     @FindBy(id = "com.progoti.tallykhata:id/btnConfirm")
     public static
     MobileElement nextBtn4;
+
+    //try to do normal txn in tally tab
+
+    @FindBy(id = "com.progoti.tallykhata:id/layoutCustomerInfo")
+    public static
+    MobileElement Click_on_existing_customer;
+
+    @FindBy(id = "com.progoti.tallykhata:id/etSale")
+    public static
+    MobileElement Dilam_Supplier;
+
+    @FindBy(id = "com.progoti.tallykhata:id/etGot")
+    public static
+    MobileElement Pelam_supplier;
+
+    @FindBy(id = "com.progoti.tallykhata:id/etDescription")
+    public static
+    MobileElement Txn_Description;
+
+    @FindBy(id = "com.progoti.tallykhata:id/btnConfirmCreditEntry")
+    public static
+    MobileElement Confirm_button_normal_txn;
+
+    @FindBy(id = "com.progoti.tallykhata:id/et_cash_sale")
+    public static
+    MobileElement Cash_becha_to_adjust;
+
+    @FindBy(id = "com.progoti.tallykhata:id/et_malik_dilo")
+    public static
+    MobileElement Malik_dilo_to_adjust;
+
+    @FindBy(id = "com.progoti.tallykhata:id/tv_yes_button")
+    public static
+    MobileElement Confirm_button_to_adjust;
+
+    //clicking customer/supplier from tally tab using xpath when there are more than customer/supplier.
+
+    @FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout[2]/androidx.recyclerview.widget.RecyclerView/android.widget.RelativeLayout[2]/android.widget.LinearLayout/android.widget.LinearLayout")
+    public static
+    MobileElement First_CS_from_list;
+
+    @FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout[2]/androidx.recyclerview.widget.RecyclerView/android.widget.RelativeLayout[1]/android.widget.LinearLayout/android.widget.LinearLayout")
+    public static
+    MobileElement Second_CS_from_list;
 
 
 
@@ -119,29 +165,109 @@ public class TestCase {
 
     }
 
-    public static void AddCSButton()
+    public static void AddCSButton1()
     {
         AddCSButton.click();
     }
 
-    public static void AddCS(String customer_name, String customer_mobile_no, Double jer_amount) throws InterruptedException {
+    public static void Add_Supplier(String customer_name, String customer_mobile_no, Double jer_amount) throws InterruptedException {
 
 
-        //if you waant to add supplier
+        //if you want to add supplier or else comment out next two line for adding customer
 
         Select_Supplier_Option.click();
-        Thread.sleep(3000);
+        Thread.sleep(5000);
 
         CS_name.sendKeys("" + customer_name + "");
-        Thread.sleep(3000);
+        Thread.sleep(5000);
 
         CS_mobile_no.sendKeys("" + customer_mobile_no + "");
-        Thread.sleep(3000);
+        Thread.sleep(5000);
 
         CS_jer_amount.sendKeys("" + jer_amount + "");
-        Thread.sleep(3000);
+        Thread.sleep(5000);
 
         nextBtn4.click();
+    }
+
+    public static void Click_to_normal_txn(Double Dilam, Double Pelam, String Description) throws InterruptedException {
+
+        // do normal txn of added first supplier/customer
+
+        Click_on_existing_customer.click();
+        Thread.sleep(5000);
+
+        Dilam_Supplier.sendKeys("" + Dilam + "");
+        Thread.sleep(5000);
+
+        Pelam_supplier.sendKeys("" + Pelam + "");
+        Thread.sleep(5000);
+
+        Txn_Description.sendKeys("" + Description + "");
+        Thread.sleep(5000);
+
+        Confirm_button_normal_txn.click();
+
+
+
+    }
+
+
+    public static void Adjust_to_normal_txn(Double cash_becha, Double malik_dilo) throws InterruptedException {
+
+
+        Cash_becha_to_adjust.sendKeys("" + cash_becha + "");
+        Thread.sleep(5000);
+
+        Malik_dilo_to_adjust.sendKeys("" + malik_dilo + "");
+        Thread.sleep(5000);
+
+
+        Confirm_button_to_adjust.click();
+
+    }
+
+    public static void AddCSButton2()
+    {
+        AddCSButton.click();
+    }
+
+
+    public static void Add_Customer(String customer_name, String customer_mobile_no, Double jer_amount) throws InterruptedException {
+
+
+        CS_name.sendKeys("" + customer_name + "");
+        Thread.sleep(5000);
+
+        CS_mobile_no.sendKeys("" + customer_mobile_no + "");
+        Thread.sleep(5000);
+
+        CS_jer_amount.sendKeys("" + jer_amount + "");
+        Thread.sleep(5000);
+
+        nextBtn4.click();
+    }
+
+    public static void Click_to_2nd_normal_txn() throws InterruptedException {
+
+        // do normal txn of added 2nd supplier/customer
+
+        Second_CS_from_list.click();
+        /*Thread.sleep(5000);
+
+        Dilam_Supplier.sendKeys("" + Dilam + "");
+        Thread.sleep(5000);
+
+        Pelam_supplier.sendKeys("" + Pelam + "");
+        Thread.sleep(5000);
+
+        Txn_Description.sendKeys("" + Description + "");
+        Thread.sleep(5000);
+
+        Confirm_button_normal_txn.click();*/
+
+
+
     }
 
 
