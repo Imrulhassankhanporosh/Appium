@@ -31,26 +31,59 @@ public class TestCase {
 
    //OTP page
 
-    /*@FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.widget.LinearLayout/android.view.ViewGroup/android.widget.TextView[1]")
+   // @FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.widget.LinearLayout/android.view.ViewGroup/android.widget.TextView[1]")
     @FindBy(id = "com.progoti.tallykhata:id/pinEntryViewOtp")
-    public static
+    public
     MobileElement otp1;
 
-    @FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.widget.LinearLayout/android.view.ViewGroup/android.widget.TextView[2]")
-    public static
-    MobileElement otp2;
-
-    @FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.widget.LinearLayout/android.view.ViewGroup/android.widget.TextView[3]")
-    public static
-    MobileElement otp3;
-
-    @FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.widget.LinearLayout/android.view.ViewGroup/android.widget.TextView[4]")
-    public static
-    MobileElement otp4;*/
 
     @FindBy(id = "com.progoti.tallykhata:id/btnNext")
     public static
     MobileElement nextBtn2;
+
+    // Shop Name Page
+
+    // @FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ScrollView/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.EditText")
+    @FindBy(id = "com.progoti.tallykhata:id/et_shop_name")
+    public static
+    MobileElement ShopName;
+
+    @FindBy(id = "com.progoti.tallykhata:id/btnNext")
+    public static
+    MobileElement nextBtn3;
+
+    //add customer button
+
+    @FindBy(id = "com.progoti.tallykhata:id/add_customer")
+    public static
+    MobileElement AddCSButton;
+
+    //add customer/supplier page
+
+
+    @FindBy(id = "com.progoti.tallykhata:id/etCustomerOrSupplier")
+    public static
+    MobileElement CS_name;
+
+    @FindBy(id = "com.progoti.tallykhata:id/etMobileNumber")
+    public static
+    MobileElement CS_mobile_no;
+
+    @FindBy(id = "com.progoti.tallykhata:id/etMobileNumber")
+    public static
+    MobileElement CS_jer_amount;
+
+    @FindBy(id = "com.progoti.tallykhata:id/btnSupplier")
+    public static
+    MobileElement Select_Supplier_Option;
+
+    @FindBy(id = "com.progoti.tallykhata:id/btnConfirm")
+    public static
+    MobileElement nextBtn4;
+
+
+
+
 
 
 
@@ -68,78 +101,49 @@ public class TestCase {
         mobileNumber.sendKeys("" + mobileNo + "");
         nextBtn1.click();
 
-        //driver.findElement(By.id("com.progoti.tallykhata:id/pinEntryViewOtp")).sendKeys("1234");
-
-        //driver.findElement(By.xpath( "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.widget.LinearLayout/android.view.ViewGroup/android.widget.TextView[1]")).sendKeys("1");
-
-       // nextBtn2.click();
-
-
     }
 
 
-   /* @FindBy(id= "com.progoti.tallykhata:id/pinEntryViewOtp")
-    // @FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.widget.LinearLayout/android.view.ViewGroup/android.widget.TextView[1]")
-    public
-    MobileElement element;*/
+    public static void OTPEnter() {
 
-
-
-    //public Actions action = new Actions(driver);
-
-
-    /*public void otpPage() {
-
-
-        Point location = element.getLocation();
-
-        //System.out.print("location is : " +location);
-
-       // element.sendKeys("1");
-
-        //action.sendKeys(element, "1234").build().perform();
-
-         driver.getKeyboard().sendKeys("1234");
-
-       // nextBtn2.click();
-    }*/
-
-
-
-
-
-
-
-    /*public static void OTPEnter1(String otp) {
-
-        //otp1.click();
-        //otp1.sendKeys(Integer.toString(Integer.parseInt(otp)));
-        otp1.sendKeys(otp);
-
-
-    }
-
-    public static void OTPEnter2(String otp) {
-
-        otp2.sendKeys("" + otp + "");
-
-
-    }
-
-    public static void OTPEnter3(String otp) {
-
-        otp3.sendKeys("" + otp + "");
-
-
-    }
-
-    public static void OTPEnter4(String otp) {
-
-        otp4.sendKeys("" + otp + "");
         nextBtn2.click();
 
 
-    }*/
+    }
+
+    public static void ShopNameEnter(String shop_name) {
+
+
+        ShopName.sendKeys("" + shop_name+ "");
+        nextBtn3.click();
+
+    }
+
+    public static void AddCSButton()
+    {
+        AddCSButton.click();
+    }
+
+    public static void AddCS(String customer_name, String customer_mobile_no, Double jer_amount) throws InterruptedException {
+
+
+        //if you waant to add supplier
+
+        Select_Supplier_Option.click();
+        Thread.sleep(3000);
+
+        CS_name.sendKeys("" + customer_name + "");
+        Thread.sleep(3000);
+
+        CS_mobile_no.sendKeys("" + customer_mobile_no + "");
+        Thread.sleep(3000);
+
+        CS_jer_amount.sendKeys("" + jer_amount + "");
+        Thread.sleep(3000);
+
+        nextBtn4.click();
+    }
+
 
 
 

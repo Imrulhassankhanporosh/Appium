@@ -6,23 +6,26 @@ public class TestRunner extends AppiumTK {
     public void clickEMIScreen() throws InterruptedException {
 
         TestCase testCase=new TestCase(driver);
-        testCase.TKMobileNoEnter("01715321239");
+        testCase.TKMobileNoEnter("01715321540");
         Thread.sleep(5000);
 
-        /*TestCase.OTPEnter1("1234");
-        Thread.sleep(3000);
 
-        TestCase.OTPEnter2("2");
-        Thread.sleep(3000);
 
-        TestCase.OTPEnter3("3");
-        Thread.sleep(3000);
 
-        TestCase.OTPEnter4("4");
-        Thread.sleep(3000);*/
+        driver.getKeyboard().sendKeys("1234");
+        Thread.sleep(5000);
 
-        //testCase.otpPage();
+        TestCase.OTPEnter();
+        Thread.sleep(5000);
 
+        TestCase.ShopNameEnter("Imrul Shop");
+        Thread.sleep(5000);
+
+        TestCase.AddCSButton();
+        Thread.sleep(5000);
+
+        TestCase.AddCS("Imrul", "01799433867", 10.00);
+        Thread.sleep(5000);
 
 
     }
